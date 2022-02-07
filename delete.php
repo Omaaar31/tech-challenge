@@ -2,7 +2,7 @@
 // On démarre une session
 session_start();
 
-// Est-ce que l'id_equipage existe et n'est pas vid_equipagee dans l'URL
+// Est-ce que l'id_equipage existe et n'est pas vide
 if(isset($_GET['id_equipage']) && !empty($_GET['id_equipage'])){
     require_once('connect.php');
 
@@ -14,7 +14,7 @@ if(isset($_GET['id_equipage']) && !empty($_GET['id_equipage'])){
     // On prépare la requête
     $query = $bdd->prepare($sql);
 
-    // On "accroche" les paramètre (id_equipage)
+    // On "accroche" les paramètres (id_equipage)
     $query->bindValue(':id_equipage', $id, PDO::PARAM_INT);
 
     // On exécute la requête

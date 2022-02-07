@@ -43,19 +43,17 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
 require_once('close.php');
 
 
-
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Argonautes</title>
-
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Argonautes</title>
+            <link rel="stylesheet" href="style.css">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 <!-- Header section -->
 <header>
@@ -66,7 +64,6 @@ require_once('close.php');
 </header>
 
 <!-- Main section -->
-<main>
 <body>
     <main class="container">
         <div class="row">
@@ -89,41 +86,37 @@ require_once('close.php');
                 ?>
                 
                 <h2>Ajouter un(e) Argonaute</h2>
-                <form class="new-member-form" method="post">
-    <label for="nom_equipage">Nom de l&apos;Argonaute</label> <br>
-    <input id="name" name="nom_equipage" type="text" placeholder="Charalampos" />
-    <button type="submit">Envoyer</button>
-  </form>
+                    <form class="new-member-form" method="post">
+                        <label for="nom_equipage">Nom de l&apos;Argonaute</label> <br>
+                            <input id="name" name="nom_equipage" type="text" placeholder="Charalampos" />
+                                <button type="submit">Envoyer</button>
+                    </form>
 
                   <!-- Member list -->
-    <h2>Membres de l'équipage</h2>
-    <table class="table">
-        <thead>
-            <th>Nom</th>
-            <th>Plus</th>
-        </thead>
-        <tbody>
-            <?php
-            // On boucle sur la variable result
-            foreach ($result as $membres){
-            ?>
-                <tr>
-                    <td><?= $membres ['nom_equipage'] ?></td>
-                    <td><a href="details.php?id_equipage=<?=$membres['id_equipage']?>">Voir détail</a> <a href="delete.php?id_equipage=<?= $membres['id_equipage'] ?>">Supprimer</a></td>
-                </tr>
-            <?php
-        }
-            ?>
-        </tbody>
-    </table>
-</div>
+                <h2>Membres de l'équipage</h2>
+                    <table class="table">
+                        <thead>
+                            <th>Nom</th>
+                            <th>Plus</th>
+                        </thead>
+                        <tbody>
+                            <?php
+                                // On boucle sur la variable result
+                                foreach ($result as $membres){
+                            ?>
+                                <tr>
+                                    <td><?= $membres ['nom_equipage'] ?></td>
+                                    <td><a href="details.php?id_equipage=<?=$membres['id_equipage']?>">Voir détail</a> <a href="delete.php?id_equipage=<?= $membres['id_equipage'] ?>">Supprimer</a></td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+        </div>
 
-
-<footer>
-  <p>Réalisé par Jason en Anthestérion de l'an 515 avant JC</p>
-</footer>
-
-
-
-</body>
+        <footer>
+            <p>Réalisé par Jason en Anthestérion de l'an 515 avant JC</p>
+        </footer>
+    </body>
 </html>
