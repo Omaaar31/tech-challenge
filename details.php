@@ -20,10 +20,10 @@ if(isset($_GET['id_equipage']) && !empty($_GET['id_equipage'])){
     // On exécute la requête
     $query->execute();
 
-    // On récupère le produit
+    // On récupère le membre
     $membres = $query->fetch();
 
-    // On vérifie si le produit existe
+    // On vérifie si le membre existe
     if(!$membres){
         $_SESSION['erreur'] = "Cet id n'existe pas";
         header('Location: index.php');

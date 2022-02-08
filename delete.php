@@ -20,10 +20,10 @@ if(isset($_GET['id_equipage']) && !empty($_GET['id_equipage'])){
     // On exécute la requête
     $query->execute();
 
-    // On récupère le produit
+    // On récupère le membre
     $membres = $query->fetch();
 
-    // On vérifie si le produit existe
+    // On vérifie si le membre existe
     if(!$membres){
         $_SESSION['erreur'] = "Cet id_equipage n'existe pas";
         header('Location: index.php');
@@ -35,7 +35,7 @@ if(isset($_GET['id_equipage']) && !empty($_GET['id_equipage'])){
     // On prépare la requête
     $query = $bdd->prepare($sql);
 
-    // On "accroche" les paramètre (id_equipage)
+    // On "accroche" les paramètres (id_equipage)
     $query->bindValue(':id_equipage', $id, PDO::PARAM_INT);
 
     // On exécute la requête
