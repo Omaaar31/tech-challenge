@@ -2,7 +2,7 @@
 // On démarre une session
 session_start();
 
-// Est-ce que l'id_equipage existe et n'est pas vid_equipagee dans l'URL
+// Est-ce que l'id_equipage existe et n'est pas vide
 if(isset($_GET['id_equipage']) && !empty($_GET['id_equipage'])){
     require_once('connect.php');
 
