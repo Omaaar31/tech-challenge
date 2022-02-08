@@ -14,7 +14,7 @@ if(isset($_GET['id_equipage']) && !empty($_GET['id_equipage'])){
     // On prépare la requête
     $query = $bdd->prepare($sql);
 
-    // On "accroche" les paramètre (id_equipage)
+    // On "accroche" les paramètres (id_equipage)
     $query->bindValue(':id_equipage', $id, PDO::PARAM_INT);
 
     // On exécute la requête
