@@ -5,6 +5,7 @@ require_once('connect.php');
 
 
 if($_POST){
+    // Est-ce que le nom_equipage reçu existe et n'est pas vide 
     if(isset($_POST['nom_equipage']) && !empty($_POST['nom_equipage'])){
     
         require_once('connect.php');
@@ -14,12 +15,16 @@ if($_POST){
 
         $sql = 'INSERT INTO `equipage` (`nom_equipage`) VALUES (:nom_equipage);';
 
+        // On prépare la requête
         $query = $bdd->prepare($sql);
 
+        // On "accroche" les paramètres (nom_equipage)
         $query->bindValue(':nom_equipage', $name, PDO::PARAM_STR);
        
+        // On exécute la requête    
         $query->execute();
 
+        // On affiche un message quand le membre est ajouté
         $_SESSION['message'] = "Membre de l'équipage ajouté";
         require_once('close.php');
 
@@ -41,7 +46,6 @@ $query->execute();
 $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
 require_once('close.php');
-
 
 ?>
 
